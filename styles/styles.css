@@ -1,0 +1,2389 @@
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    left: -100%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    left: 0;
+  }
+}
+@keyframes kenburns-top-left {
+  0% {
+    transform: scale(1) translate(0, 0);
+    transform-origin: 16% 16%;
+  }
+  100% {
+    transform: scale(1.25) translate(-20px, -15px);
+    transform-origin: top left;
+  }
+}
+.slide-in-left {
+  animation: slide-in-left 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.kenburns-top-left {
+  animation: kenburns-top-left 10s ease-out infinite both;
+}
+
+@font-face {
+  font-family: "Larken";
+  src: url("/Again_landing/styles/fonts/Larken-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raptor";
+  src: url("/Again_landing/styles/fonts/Raptor-Light.otf") format("opentype");
+}
+:root {
+  --color-orange: #FF3200;
+  --color-teal: #002B3F;
+  --color-lime: #70F74B;
+  --color-seashell: #FFF4F0;
+  --color-navy: #001A26;
+  --color-black: rgba(0,0,0,1);
+  --br-sm-2: 14px;
+  --box-shadow-1: 0 3px 15px rgba(0,0,0,.2);
+  --card-width: 200px;
+  --card-height: 300px;
+  --card-transition-duration: 800ms;
+  --card-transition-easing: ease;
+  --fs-l: clamp(3.5em, 5vw + 1em, 5.5em);
+  --fs-m: 2.5em;
+  --fs-s: 1.5em;
+}
+
+* {
+  margin: o;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+a {
+  list-style: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Larken", Arial;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: var(--color-navy);
+  font-size: 1.1rem;
+  color: black;
+  transition: all 0.4s ease-in-out;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@media (max-width: 35em) {
+  :root {
+    --color-primary: #F76B6A;
+    --color-secondary: #002B3F;
+    --color-green: #70F74B;
+    --color-seashell: #FFF4F0;
+    --color-black: rgba(0,0,0,1);
+    --br-sm-2: 14px;
+    --box-shadow-1: 0 3px 15px rgba(0,0,0,.2);
+    --card-width: 200px;
+    --card-height: 300px;
+    --card-transition-duration: 800ms;
+    --card-transition-easing: ease;
+    --fs-l: clamp(2.5em, 6vw + 1em, 5.5em);
+    --fs-m: 1.5em;
+    --fs-s: .8em;
+  }
+  header {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border-bottom: 0.05em solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+  }
+  header .main_menu {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
+    margin: 0;
+    padding: 4.5em 0 0 1.5em;
+    left: 0;
+    background-color: var(--color-orange);
+    z-index: 20;
+    transform: scaleX(0);
+    transition: transform 0.4s ease-in-out;
+    transform-origin: left;
+  }
+  header .main_menu.active {
+    transform: scaleX(1);
+  }
+  header .main_menu a {
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  header .main_menu .menu_item {
+    width: 100%;
+    text-transform: lowercase;
+    font-family: "Larken", Arial;
+    color: var(--color-teal);
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 3em;
+  }
+  header .main_menu .menu_contact {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    color: rgba(255, 244, 240, 0.6);
+  }
+  header .main_menu .menu_contact:before {
+    content: "Contact Us";
+    width: 100%;
+    position: absolute;
+    bottom: 70%;
+    font-size: 1.2em;
+    font-family: "Raptor", Arial;
+    padding-left: 7.5%;
+  }
+  header .main_menu .menu_contact .email_contact {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    padding-left: 7.5%;
+  }
+  header .main_menu .menu_contact .email_contact a:before {
+    content: "Email Us";
+    width: 100%;
+    position: absolute;
+    bottom: 55%;
+    color: rgb(255, 244, 240);
+    font-family: "Raptor", Arial;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  header .main_menu .menu_contact .email_contact a {
+    text-decoration: none;
+    font-size: 0.8em;
+    color: var(--color-navy);
+    font-family: "Raptor", Arial;
+    font-weight: 900;
+  }
+  header .main_menu .social_contact {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    padding-left: 7.5%;
+  }
+  header .main_menu .social_contact:after {
+    content: "Follow Us";
+    width: 100%;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 70%;
+    font-family: "Raptor", Arial;
+  }
+  header .main_menu .social_contact a {
+    width: 100%;
+    font-size: 0.8em;
+    color: var(--color-seashell);
+    text-transform: uppercase;
+    position: relative;
+    top: 39%;
+    letter-spacing: 0.2em;
+    font-family: "Raptor", Arial;
+  }
+  header .menu {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+  }
+  header .menu .hamburger_lines {
+    width: 2em;
+    height: 2em;
+    position: relative;
+    left: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    z-index: 2;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    bottom: 5%;
+  }
+  header .menu .hamburger_lines .line {
+    width: 100%;
+    height: 0.1em;
+    background-color: var(--color-primary);
+    display: block;
+    position: relative;
+    box-shadow: 1px 1px 4px;
+  }
+  header .menu .hamburger_lines .line.line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  header .menu .hamburger_lines .line.line1.active {
+    width: 100%;
+    transform: rotate(45deg);
+    transition: transform 0.4s ease-in-out;
+    background-color: var(--color-navy);
+  }
+  header .menu .hamburger_lines .line.line2 {
+    transform: scaleX(1);
+    transition: transform 0.2s ease-in-out;
+    left: 25%;
+  }
+  header .menu .hamburger_lines .line.line2.active {
+    transform: scaleX(0);
+    transition: transform 0.4s ease-in-out;
+  }
+  header .menu .hamburger_lines .line.line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+  header .menu .hamburger_lines .line.line3.active {
+    transform: rotate(-45deg);
+    transition: transform 0.4s ease-in-out;
+    top: 10%;
+    background-color: var(--color-navy);
+  }
+  header .menu #menu-word {
+    margin: 0;
+    font-size: 0.8em;
+    position: relative;
+    left: 15%;
+    font-family: "Raptor", sans-serif;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    z-index: 2;
+  }
+  header .landing_logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    justify-content: center;
+  }
+  header .landing_logo img {
+    width: 5.5em;
+    height: 3.5em;
+    position: absolute;
+    -o-object-fit: contain;
+       object-fit: contain;
+    z-index: 10;
+    background: transparent;
+  }
+  header .header_cta {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header .header_cta button {
+    height: 45%;
+    width: 95%;
+    background: none;
+    border: 1px solid var(--color-orange);
+    border-radius: 2.5em;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.1em;
+    font-family: "Raptor", Arial;
+    font-size: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.25em;
+    z-index: 20;
+  }
+  header .header_cta button.active {
+    color: var(--color-navy);
+    border: 1px solid var(--color-navy);
+  }
+  main {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: var(--color-teal);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    perspective: 100px;
+    perspective-origin: left;
+    perspective: 70em;
+    perspective-origin: left;
+  }
+  main section {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+  }
+  main .landing_header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: var(--color-teal);
+    background-attachment: fixed;
+    z-index: 5;
+    transform-style: preserve-3d;
+    transform-origin: left;
+  }
+  main .landing_header .header_lines {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+  main .landing_header .header_lines .header_line {
+    width: 100%;
+    height: 0.05em;
+    position: absolute;
+    background-color: rgba(255, 244, 240, 0.4);
+  }
+  main .landing_header .header_lines .header_line:nth-child(1) {
+    top: 30%;
+  }
+  main .landing_header .header_lines .header_line:nth-child(2) {
+    top: 55%;
+  }
+  main .landing_header .header_lines .header_line:nth-child(3) {
+    top: 75%;
+  }
+  main .landing_header .header_proof {
+    margin: 0;
+    width: 55%;
+    position: absolute;
+    top: 13%;
+    left: 15%;
+    font-family: "Raptor";
+    font-size: 1.5em;
+    color: var(--color-seashell);
+  }
+  main .landing_header .header_tagline {
+    width: 100%;
+    height: 38%;
+    position: relative;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    font-size: 6em;
+    color: var(--color-seashell);
+    font-family: "Larken", sans-serif;
+    line-height: 1em;
+  }
+  main .landing_header .header_tagline span {
+    position: relative;
+  }
+  main .landing_header .header_tagline span:nth-child(1) {
+    left: 30%;
+  }
+  main .landing_header .header_tagline span:nth-child(2) {
+    left: 10%;
+  }
+  main .landing_header .header_tagline span:nth-child(3) {
+    left: 16%;
+  }
+  main .landing_header .header_arrow {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 80%;
+    left: 50%;
+  }
+  main .landing_header .header_arrow span {
+    width: 0.2em;
+    height: 45%;
+    position: absolute;
+    display: flex;
+    background-color: var(--color-orange);
+    position: absolute;
+  }
+  main .landing_header .header_arrow svg {
+    position: absolute;
+    stroke: var(--color-orange);
+    top: 9.5%;
+    transform: rotate(45deg);
+    stroke-width: 5%;
+  }
+  main .about {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--color-navy);
+    transform-origin: right;
+    position: absolute;
+    right: 0;
+  }
+  main .about .section_header {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 0;
+  }
+  main .about .section_header h1:before {
+    content: "";
+    width: 25%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 45%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .about .section_header h1 {
+    margin: 0;
+    font-family: "Raptor", Arial;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    position: absolute;
+    left: 6%;
+  }
+  main .about .section_body {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  main .about .section_body .body_element {
+    position: absolute;
+  }
+  main .about .section_body .body_element:nth-child(1) {
+    width: 75%;
+    height: 35%;
+    z-index: 5;
+    left: 7%;
+    font-family: "Larken", Arial;
+  }
+  main .about .section_body .body_element:nth-child(1) p {
+    margin: 0;
+    font-family: "Larken";
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--color-seashell);
+  }
+  main .about .section_body .body_element:nth-child(1) p:after {
+    content: "difference";
+    width: 100%;
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    font-size: 2em;
+    color: var(--color-orange);
+    font-family: "Larken";
+  }
+  main .about .section_body .body_element:nth-child(2) {
+    width: 55%;
+    height: 35%;
+    top: 5%;
+    right: 0;
+  }
+  main .about .section_body .body_element:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  main .about .section_body .body_element:nth-child(3) {
+    width: 55%;
+    height: 35%;
+    top: 30%;
+  }
+  main .about .section_body .body_element:nth-child(3) #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 26, 38, 0.8);
+    z-index: 2;
+  }
+  main .about .section_body .body_element:nth-child(3) img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .about .section_body .body_element:nth-child(4) {
+    width: 85%;
+    height: 35%;
+    top: 45%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  main .about .section_body .body_element:nth-child(4) p {
+    margin: 0;
+    font-family: "Raptor", sans-serif;
+    font-size: 1em;
+    color: var(--color-seashell);
+    position: relative;
+    top: 10%;
+    z-index: 5;
+  }
+  main .about .section_body .body_element:nth-child(4) p:before {
+    content: "";
+    width: 95%;
+    height: 0.05em;
+    background-color: rgba(255, 244, 240, 0.4);
+    display: flex;
+    position: absolute;
+    bottom: 105%;
+    left: 0;
+  }
+  main .about .section_body .body_element:nth-child(4) .cta_button {
+    width: 45%;
+    height: 5vh;
+    position: absolute;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    border: 1px solid var(--color-orange);
+    border-radius: 1.5em;
+    text-decoration: none;
+    gap: 0.2em;
+  }
+  main .about .section_body .body_element:nth-child(4) .cta_button button {
+    width: 80%;
+    background: none;
+    font-family: "Raptor", sans-serif;
+    text-transform: uppercase;
+    word-spacing: 0.2em;
+    color: var(--color-seashell);
+    font-size: 0.5em;
+    border: none;
+  }
+  main .about .section_body .body_element:nth-child(4) .cta_button i {
+    color: var(--color-seashell);
+  }
+  main .about .section_body .body_element.active {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  main .about .our_process {
+    width: 100%;
+    height: 45%;
+    left: 0;
+    display: block;
+    position: relative;
+    bottom: 5%;
+    background: var(--color-navy);
+  }
+  main .about .our_process .section_header {
+    width: 100%;
+    height: 15%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 0;
+  }
+  main .about .our_process .section_header h1 {
+    margin: 0;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    position: absolute;
+    left: 6%;
+    font-family: "Raptor", sans-serif;
+  }
+  main .about .our_process .section_header h1:before {
+    content: "";
+    width: 25%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 45%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .about .our_process .process_headline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 7%;
+  }
+  main .about .our_process .process_headline p {
+    margin: 0;
+    font-family: "Larken";
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--color-seashell);
+    z-index: 10;
+    font-family: "Larken", Arial;
+  }
+  main .about .our_process .process_headline p:after {
+    content: "work";
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    font-size: 2em;
+    color: var(--color-orange);
+    font-family: "Larken";
+  }
+  main .about .our_process .process_body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--color-navy);
+  }
+  main .about .our_process .process_body .process_img {
+    width: 55%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    left: 2%;
+  }
+  main .about .our_process .process_body .process_img #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 26, 38, 0.8);
+    z-index: 2;
+  }
+  main .about .our_process .process_body .process_img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .about .our_process .process_body .process_copy {
+    width: 65%;
+    height: 70%;
+    position: absolute;
+    top: 25%;
+    right: 0;
+    z-index: 5;
+  }
+  main .about .our_process .process_body .process_copy p {
+    margin: 0;
+    color: var(--color-seashell);
+    font-size: 1em;
+    position: absolute;
+    font-family: "Raptor", sans-serif;
+  }
+  main .about .our_process .process_body .process_copy p:before {
+    content: "";
+    width: 100%;
+    height: 0.05em;
+    background-color: rgba(255, 244, 240, 0.6);
+    display: flex;
+    position: absolute;
+    bottom: 110%;
+    left: 0%;
+    margin-right: 0.2em;
+  }
+  main .about .our_process .process_body .process_copy .process_cta {
+    width: 60%;
+    height: 5vh;
+    border: 1px solid var(--color-orange);
+    position: absolute;
+    top: 55%;
+    border-radius: 5.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2em;
+    padding: 0.2em;
+    text-decoration: none;
+  }
+  main .about .our_process .process_body .process_copy .process_cta button {
+    background: none;
+    border: none;
+    color: var(--color-seashell);
+    text-transform: uppercase;
+    font-size: 0.5em;
+    font-family: "Raptor";
+    padding-top: 0.25em;
+  }
+  main .about .our_process .process_body .process_copy .process_cta i {
+    color: var(--color-seashell);
+    position: relative;
+    right: 5%;
+  }
+  main .about .back_button {
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    left: 0;
+    top: 145%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top: 2px solid rgb(255, 255, 255);
+    background-color: var(--color-navy);
+  }
+  main .about .back_button svg {
+    stroke-width: 2;
+    transform: rotate(135deg);
+    position: relative;
+    left: 2%;
+    bottom: 4%;
+  }
+  main .clients {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    top: 150%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-secondary);
+    overflow: hidden;
+  }
+  main .clients .section_header {
+    width: 100%;
+    height: 1.5em;
+    display: flex;
+    position: absolute;
+    top: 21%;
+    left: 0;
+    z-index: 15;
+  }
+  main .clients .section_header h1 {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: "Raptor", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: var(--color-seashell);
+    position: relative;
+    left: 6%;
+  }
+  main .clients .section_header h1:before {
+    content: "";
+    width: 10%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .clients .carousel__container {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    left: 10%;
+  }
+  main .clients .carousel__container .client_slide {
+    width: 100%;
+    height: 20%;
+    position: relative;
+  }
+  main .clients .carousel__container .client_slide.main {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    top: 30%;
+    scale: 1.2;
+    z-index: 5;
+  }
+  main .clients .carousel__container .client_slide.main #overlay {
+    display: none;
+  }
+  main .clients .carousel__container .client_slide.main .slide_title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2em;
+    display: flex;
+    z-index: 10;
+  }
+  main .clients .carousel__container .client_slide.main .slide_title h1 {
+    margin: 0;
+    position: absolute;
+    color: var(--color-seashell);
+    font-family: "Larken", Arial;
+    font-size: 3em;
+    font-weight: 100;
+    text-shadow: 1px 1px 4px var(--color-black);
+  }
+  main .clients .carousel__container .client_slide.main .slide_title h1:after {
+    content: "Malt";
+    color: var(--color-seashell);
+    font-size: 1em;
+    font-family: "Larken";
+  }
+  main .clients .carousel__container .client_slide.main img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: absolute;
+  }
+  main .clients .carousel__container .client_slide.main .slide_count {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    left: 120%;
+    z-index: 10;
+    transform: rotate(90deg);
+  }
+  main .clients .carousel__container .client_slide.main .slide_count h3 {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    position: relative;
+    color: var(--color-seashell);
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy {
+    position: absolute;
+    left: 25%;
+    color: var(--color-seashell);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    width: 120%;
+    background: rgba(0, 43, 63, 0.8);
+    height: 100%;
+    padding-left: 0.2em;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy h1 {
+    font-size: 1em;
+    margin: 0;
+    position: relative;
+    top: 10vh;
+    color: var(--color-orange);
+    font-weight: 100;
+    text-shadow: 1px 1px 4px var(--color-black);
+    font-family: "Raptor", sans-serif;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy h1:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 1px;
+    display: flex;
+    background-color: rgba(255, 244, 240, 0.8);
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy #copy {
+    height: 33%;
+    margin: 0;
+    position: relative;
+    top: 30%;
+    font-family: "Raptor", sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8em;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy .work_cta {
+    width: 50%;
+    height: 5vh;
+    height: 1.5em;
+    position: absolute;
+    top: 90%;
+    right: 5%;
+    border: 1px solid var(--color-orange);
+    border-radius: 1.5em;
+    display: flex;
+    padding: 0.2em;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy .work_cta button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: "Raptor", sans-serif;
+    font-size: 0.5em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    padding-top: 0.25em;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy .work_cta i {
+    color: var(--color-seashell);
+  }
+  main .clients .carousel__container .client_slide #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 43, 63, 0.5);
+    z-index: 2;
+  }
+  main .clients .carousel__container .client_slide .slide_title {
+    display: none;
+  }
+  main .clients .carousel__container .client_slide img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .clients .carousel__container .client_slide .slide_count {
+    display: none;
+  }
+  main .clients .carousel__container .client_slide .slide__copy {
+    display: none;
+  }
+  main .our_services {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 150%;
+    left: 0;
+    background-color: var(--color-navy);
+  }
+  main .our_services .section_header {
+    width: 100%;
+    height: 1.5em;
+    display: flex;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    z-index: 15;
+  }
+  main .our_services .section_header h1 {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-transform: uppercase;
+    font-family: "Raptor", sans-serif;
+    font-size: 0.8em;
+    color: var(--color-seashell);
+    position: relative;
+    left: 6%;
+  }
+  main .our_services .section_header h1:before {
+    content: "";
+    width: 10%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .our_services .section_headline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 7%;
+    top: 10%;
+  }
+  main .our_services .section_headline p {
+    margin: 0;
+    font-family: "Larken";
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--color-seashell);
+    z-index: 10;
+    font-family: "Larken", Arial;
+  }
+  main .our_services .section_headline p:after {
+    content: "unique";
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    font-size: 2em;
+    color: var(--color-orange);
+    font-family: "Larken";
+  }
+  main .our_services .header_copy {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 20%;
+  }
+  main .our_services .header_copy img {
+    width: 42%;
+    height: 30%;
+    position: absolute;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .our_services .header_copy p {
+    margin: 0;
+    position: absolute;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main .our_services .header_copy p:nth-child(2) {
+    width: 42%;
+    height: 30%;
+    z-index: 10;
+    background: rgba(0, 26, 38, 0.8);
+    padding-left: 0.1em;
+  }
+  main .our_services .header_copy p:nth-child(3) {
+    position: absolute;
+    width: 75%;
+    right: 0;
+    top: 30%;
+    font-size: 0.8em;
+  }
+  main .our_services .services {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+  }
+  main .our_services .services .services_header {
+    width: 85%;
+    color: var(--color-seashell);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 244, 240, 0.4);
+  }
+  main .our_services .services .services_header h1 {
+    margin: 0;
+    font-size: 0.8em;
+    display: flex;
+    position: relative;
+    font-weight: 100;
+    font-family: "Raptor", sans-serif;
+  }
+  main .our_services .services .service {
+    width: 85%;
+    font-size: 1.5em;
+    color: rgba(255, 244, 240, 0.6);
+    font-family: "Larken", Arial;
+    border-bottom: 1px solid rgba(255, 244, 240, 0.6);
+  }
+  main .our_services .services .service h2 {
+    margin: 0;
+    position: relative;
+    left: 10%;
+  }
+  main footer {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    top: 150%;
+    background-color: var(--color-teal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main footer .footer_cta {
+    width: 100%;
+    display: flex;
+    position: relative;
+    top: 5%;
+    left: 2%;
+  }
+  main footer .footer_cta p {
+    margin: 0;
+    color: var(--color-seashell);
+    font-size: 1.5em;
+    font-family: "Raptor", sans-serif;
+  }
+  main footer .footer_cta p span {
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-size: 1.2em;
+  }
+  main footer .contact_us {
+    display: none;
+  }
+  main footer .follow_us {
+    display: none;
+  }
+  main footer .connect {
+    width: 100%;
+    position: relative;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+  }
+  main footer .connect a {
+    width: 3em;
+    height: 3em;
+    border: 1px solid var(--color-orange);
+    border-radius: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  main footer .connect a i {
+    color: var(--color-seashell);
+    font-size: 1.2em;
+  }
+  main footer .copyrite {
+    width: 80%;
+    position: relative;
+    top: 20%;
+    display: flex;
+    gap: 1em;
+    border-top: 1px solid rgba(255, 244, 240, 0.6);
+    padding-top: 1em;
+  }
+  main footer .copyrite i {
+    color: var(--color-seashell);
+  }
+  main footer .copyrite p {
+    margin: 0;
+    font-size: 0.8em;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main footer .signature {
+    color: var(--color-seashell);
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    font-family: "Raptor", sans-serif;
+  }
+}
+@media (min-width: 35em) {
+  :root {
+    --color-primary: #F76B6A;
+    --color-secondary: #002B3F;
+    --color-green: #70F74B;
+    --color-seashell: #FFF4F0;
+    --color-black: rgba(0,0,0,1);
+    --br-sm-2: 14px;
+    --box-shadow-1: 0 3px 15px rgba(0,0,0,.2);
+    --card-width: 200px;
+    --card-height: 300px;
+    --card-transition-duration: 800ms;
+    --card-transition-easing: ease;
+    --fs-l: clamp(2.5em, 6vw + 1em, 5.5em);
+    --fs-m: 1.5em;
+    --fs-s: .8em;
+  }
+  header {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border-bottom: 0.05em solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+  }
+  header .main_menu {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    align-items: flex-start;
+    gap: 0.5em;
+    margin: 0;
+    padding: 3.5em 0 0 3.5em;
+    left: 0;
+    background-color: var(--color-orange);
+    z-index: 20;
+    display: flex;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+  }
+  header .main_menu.active {
+    transform: scaleX(1);
+  }
+  header .main_menu a {
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  header .main_menu .menu_item {
+    width: 100%;
+    font-size: 5em;
+    text-transform: lowercase;
+    font-family: "Larken", Arial;
+    color: var(--color-teal);
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  header .main_menu .menu_contact {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: rgba(255, 244, 240, 0.6);
+  }
+  header .main_menu .menu_contact:after {
+    content: "Contact Us";
+    width: 100%;
+    position: absolute;
+    bottom: 90%;
+    left: 30%;
+    font-size: 1.2em;
+    font-family: "Raptor", Arial;
+    padding-left: 7.5%;
+  }
+  header .main_menu .menu_contact .email_contact {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    padding-left: 7.5%;
+  }
+  header .main_menu .menu_contact .email_contact a:before {
+    content: "Email Us";
+    width: 100%;
+    position: absolute;
+    bottom: 55%;
+    left: 15%;
+    color: rgb(255, 244, 240);
+    font-family: "Raptor", Arial;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  header .main_menu .menu_contact .email_contact a {
+    width: 100%;
+    right: 45%;
+    position: relative;
+    text-decoration: none;
+    font-size: 0.8em;
+    color: var(--color-navy);
+    font-family: "Raptor", Arial;
+    font-weight: 900;
+  }
+  header .main_menu .menu_contact .social_contact {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    bottom: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    padding-left: 7.5%;
+  }
+  header .main_menu .menu_contact .social_contact:after {
+    content: "Follow Us";
+    width: 100%;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 65%;
+    left: 40%;
+    font-family: "Raptor", Arial;
+  }
+  header .main_menu .menu_contact .social_contact a {
+    width: 100%;
+    position: relative;
+    top: 40%;
+    right: 42%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.8em;
+    color: var(--color-seashell);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-family: "Raptor", Arial;
+  }
+  header .menu {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+  }
+  header .menu .hamburger_lines {
+    width: 2em;
+    height: 2em;
+    position: relative;
+    left: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    z-index: 2;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+  header .menu .hamburger_lines .line {
+    width: 100%;
+    height: 0.1em;
+    background-color: var(--color-primary);
+    display: block;
+    position: relative;
+    box-shadow: 1px 1px 4px;
+  }
+  header .menu .hamburger_lines .line.line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  header .menu .hamburger_lines .line.line1.active {
+    width: 100%;
+    transform: rotate(45deg);
+    transition: transform 0.4s ease-in-out;
+    background-color: var(--color-navy);
+  }
+  header .menu .hamburger_lines .line.line2 {
+    transform: scaleX(1);
+    transition: transform 0.2s ease-in-out;
+    left: 25%;
+  }
+  header .menu .hamburger_lines .line.line2.active {
+    transform: scaleX(0);
+    transition: transform 0.4s ease-in-out;
+  }
+  header .menu .hamburger_lines .line.line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+  header .menu .hamburger_lines .line.line3.active {
+    transform: rotate(-45deg);
+    transition: transform 0.4s ease-in-out;
+    top: 10%;
+    background-color: var(--color-navy);
+  }
+  header .menu #menu-word {
+    margin: 0;
+    font-size: 0.8em;
+    position: relative;
+    left: 5%;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    z-index: 2;
+    font-family: "Raptor", sans-serif;
+  }
+  header .landing_logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    justify-content: center;
+  }
+  header .landing_logo img {
+    width: 10.5em;
+    height: 3.5em;
+    position: absolute;
+    -o-object-fit: contain;
+       object-fit: contain;
+    z-index: 10;
+    background: transparent;
+  }
+  header .header_cta {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header .header_cta button {
+    height: 55%;
+    width: 50%;
+    background: none;
+    border: 1px solid var(--color-orange);
+    border-radius: 2.5em;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.1em;
+    font-family: "Raptor", sans-serif;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.25em;
+    z-index: 20;
+  }
+  header .header_cta button.active {
+    color: var(--color-navy);
+    border: 1px solid var(--color-navy);
+  }
+  main {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: var(--color-teal);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    perspective: 100px;
+    perspective-origin: left;
+    perspective: 70em;
+    perspective-origin: left;
+  }
+  main section {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+  }
+  main .landing_header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: var(--color-teal);
+    background-attachment: fixed;
+    z-index: 5;
+    transform-style: preserve-3d;
+    transform-origin: left;
+  }
+  main .landing_header .header_lines {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+  main .landing_header .header_lines .header_line {
+    width: 100%;
+    height: 0.05em;
+    position: absolute;
+    background-color: rgba(255, 244, 240, 0.4);
+  }
+  main .landing_header .header_lines .header_line:nth-child(1) {
+    top: 30%;
+  }
+  main .landing_header .header_lines .header_line:nth-child(2) {
+    top: 55%;
+  }
+  main .landing_header .header_lines .header_line:nth-child(3) {
+    top: 75%;
+  }
+  main .landing_header .header_proof {
+    margin: 0;
+    width: 55%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: "Raptor", sans-serif;
+    font-weight: 100;
+    font-size: 4.5em;
+    color: var(--color-seashell);
+  }
+  main .landing_header .header_tagline {
+    width: 100%;
+    height: 38%;
+    position: relative;
+    top: 30%;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+    font-size: 12em;
+    color: var(--color-seashell);
+    font-family: "Larken", Arial;
+    line-height: 0.8em;
+  }
+  main .landing_header .header_tagline span {
+    position: relative;
+  }
+  main .landing_header .header_tagline span:nth-child(1) {
+    left: 30%;
+  }
+  main .landing_header .header_tagline span:nth-child(2) {
+    left: 10%;
+  }
+  main .landing_header .header_tagline span:nth-child(3) {
+    left: 16%;
+  }
+  main .landing_header .header_arrow {
+    width: 10%;
+    height: 20%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 80%;
+    left: 70%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  main .landing_header .header_arrow span {
+    width: 0.2em;
+    height: 95%;
+    position: absolute;
+    display: flex;
+    background-color: var(--color-orange);
+    position: absolute;
+  }
+  main .landing_header .header_arrow svg {
+    position: absolute;
+    bottom: 10%;
+    stroke: var(--color-orange);
+    transform: rotate(45deg);
+    stroke-width: 5%;
+  }
+  main .about {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--color-navy);
+    transform-origin: right;
+    position: absolute;
+    right: 0;
+  }
+  main .about .section_header {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 0;
+    top: 10%;
+  }
+  main .about .section_header h1:before {
+    content: "";
+    width: 2%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .about .section_header h1 {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    position: absolute;
+    left: 5%;
+    font-family: "Raptor", sans-serif;
+  }
+  main .about .section_body {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  main .about .section_body .body_element {
+    position: absolute;
+  }
+  main .about .section_body .body_element:nth-child(1) {
+    width: 60%;
+    height: 35%;
+    z-index: 5;
+    left: 5%;
+    top: 8%;
+  }
+  main .about .section_body .body_element:nth-child(1) p {
+    margin: 0;
+    font-family: "Larken";
+    font-size: 5em;
+    font-weight: 600;
+    color: var(--color-seashell);
+    font-family: "Larken", Arial;
+  }
+  main .about .section_body .body_element:nth-child(1) p:after {
+    content: "difference";
+    width: 100%;
+    position: absolute;
+    top: 135%;
+    left: 45%;
+    font-size: 2em;
+    color: var(--color-orange);
+    font-family: "Larken";
+  }
+  main .about .section_body .body_element:nth-child(2) {
+    width: 45%;
+    height: 60%;
+    bottom: 35%;
+    right: 15%;
+  }
+  main .about .section_body .body_element:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .about .section_body .body_element:nth-child(3) {
+    width: 40%;
+    height: 80%;
+    top: 42%;
+    left: 5%;
+  }
+  main .about .section_body .body_element:nth-child(3) #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 26, 38, 0.8);
+    z-index: 2;
+  }
+  main .about .section_body .body_element:nth-child(3) img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .about .section_body .body_element:nth-child(4) {
+    width: 35%;
+    height: 50%;
+    top: 65%;
+    right: 16%;
+    display: flex;
+    flex-direction: column;
+  }
+  main .about .section_body .body_element:nth-child(4) p {
+    margin: 0;
+    font-family: "Larken";
+    font-size: 1.5em;
+    color: var(--color-seashell);
+    position: relative;
+    top: 45%;
+    z-index: 5;
+    font-family: "Raptor", sans-serif;
+  }
+  main .about .section_body .body_element:nth-child(4) p:before {
+    content: "";
+    width: 95%;
+    height: 0.05em;
+    background-color: rgba(255, 244, 240, 0.4);
+    display: flex;
+    position: absolute;
+    bottom: 105%;
+    left: 0;
+  }
+  main .about .section_body .body_element:nth-child(4) .cta_button {
+    width: 45%;
+    height: 5vh;
+    position: absolute;
+    top: 105%;
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    border: 1px solid var(--color-orange);
+    border-radius: 1.5em;
+    text-decoration: none;
+    gap: 1.5em;
+    left: 0%;
+    z-index: 10;
+  }
+  main .about .section_body .body_element:nth-child(4) .cta_button button {
+    height: 100%;
+    background: none;
+    text-transform: uppercase;
+    word-spacing: 0.2em;
+    color: var(--color-seashell);
+    font-size: 1em;
+    border: none;
+    font-family: "Raptor", sans-serif;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 4%;
+    padding-top: 0.25em;
+  }
+  main .about .section_body .body_element:nth-child(4) .cta_button i {
+    color: var(--color-seashell);
+  }
+  main .about .section_body .body_element.active {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  main .about .our_process {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    display: block;
+    position: relative;
+    top: 25%;
+    background: var(--color-navy);
+  }
+  main .about .our_process .section_header {
+    width: 100%;
+    height: 5%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 0;
+    top: 15%;
+  }
+  main .about .our_process .section_header h1 {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    position: absolute;
+    left: 5%;
+    font-family: "Raptor", sans-serif;
+  }
+  main .about .our_process .section_header h1:before {
+    content: "";
+    width: 2%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .about .our_process .process_headline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 5%;
+    top: 15%;
+  }
+  main .about .our_process .process_headline p {
+    margin: 0;
+    font-size: 5em;
+    font-weight: 600;
+    color: var(--color-seashell);
+    z-index: 10;
+    font-family: "Larken", Arial;
+  }
+  main .about .our_process .process_headline p:after {
+    content: "work";
+    width: 100%;
+    position: absolute;
+    top: 23%;
+    left: 25%;
+    font-size: 3em;
+    color: var(--color-orange);
+  }
+  main .about .our_process .process_body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 25%;
+    background-color: var(--color-navy);
+  }
+  main .about .our_process .process_body .process_img {
+    width: 45%;
+    height: 75%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+  }
+  main .about .our_process .process_body .process_img #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 26, 38, 0.8);
+    z-index: 2;
+  }
+  main .about .our_process .process_body .process_img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .about .our_process .process_body .process_copy {
+    width: 25%;
+    height: 70%;
+    position: absolute;
+    top: 40%;
+    right: 23%;
+    z-index: 5;
+  }
+  main .about .our_process .process_body .process_copy p {
+    margin: 0;
+    color: var(--color-seashell);
+    font-size: 1.5em;
+    position: absolute;
+    font-family: "Raptor", sans-serif;
+  }
+  main .about .our_process .process_body .process_copy p:before {
+    content: "";
+    width: 100%;
+    height: 0.05em;
+    background-color: rgba(255, 244, 240, 0.6);
+    display: flex;
+    position: absolute;
+    bottom: 110%;
+    left: 0%;
+    margin-right: 0.2em;
+  }
+  main .about .our_process .process_body .process_copy .process_cta {
+    width: 65%;
+    height: 10%;
+    border: 1px solid var(--color-orange);
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    border-radius: 1.5em;
+    display: flex;
+    gap: 1.5em;
+    padding: 0.2em;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+  }
+  main .about .our_process .process_body .process_copy .process_cta button {
+    height: 100%;
+    background: none;
+    border: none;
+    color: var(--color-seashell);
+    text-transform: uppercase;
+    font-size: 1em;
+    font-family: "Raptor", sans-serif;
+    display: flex;
+    align-items: center;
+    padding-top: 0.25em;
+  }
+  main .about .our_process .process_body .process_copy .process_cta i {
+    color: var(--color-seashell);
+    position: relative;
+    right: 5%;
+  }
+  main .clients {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    top: 250%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-secondary);
+    overflow: hidden;
+  }
+  main .clients .section_header {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    position: absolute;
+    top: 20%;
+    z-index: 15;
+  }
+  main .clients .section_header h1 {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 55.5%;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 1em;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main .clients .section_header h1:before {
+    content: "";
+    width: 1%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .clients .carousel__container {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    left: 0%;
+  }
+  main .clients .carousel__container .client_slide {
+    width: 60%;
+    height: 10%;
+    position: relative;
+  }
+  main .clients .carousel__container .client_slide.main {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    display: flex;
+    align-items: center;
+    scale: 1.2;
+    z-index: 5;
+  }
+  main .clients .carousel__container .client_slide.main #overlay {
+    display: none;
+  }
+  main .clients .carousel__container .client_slide.main .slide_title {
+    position: absolute;
+    bottom: 90%;
+    width: 100%;
+    height: 2em;
+    display: flex;
+    z-index: 10;
+  }
+  main .clients .carousel__container .client_slide.main .slide_title h1 {
+    margin: 0;
+    position: absolute;
+    right: 45%;
+    color: var(--color-seashell);
+    font-size: 6em;
+    font-weight: 100;
+    text-shadow: 1px 1px 4px var(--color-black);
+    font-family: "Larken", Arial;
+  }
+  main .clients .carousel__container .client_slide.main .slide_title h1:after {
+    content: "Malt";
+    color: var(--color-seashell);
+    position: absolute;
+    top: 85%;
+    left: 6%;
+  }
+  main .clients .carousel__container .client_slide.main img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: absolute;
+  }
+  main .clients .carousel__container .client_slide.main .slide_count {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    left: 100%;
+    z-index: 10;
+    transform: rotate(90deg);
+  }
+  main .clients .carousel__container .client_slide.main .slide_count h3 {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    position: relative;
+    color: var(--color-seashell);
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy {
+    position: absolute;
+    left: 120%;
+    color: var(--color-seashell);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    padding-left: 0.2em;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy #copy_header {
+    font-size: 1em;
+    margin: 0;
+    position: relative;
+    top: 20%;
+    color: var(--color-orange);
+    font-weight: 100;
+    text-shadow: 1px 1px 4px var(--color-black);
+    font-family: "Raptor", sans-serif;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy h1:after {
+    content: "";
+    position: absolute;
+    top: 120%;
+    width: 100%;
+    height: 1px;
+    display: flex;
+    background-color: rgba(255, 244, 240, 0.8);
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy #copy {
+    margin: 0;
+    position: relative;
+    top: 25%;
+    font-family: "Raptor", sans-serif;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy .work_cta {
+    width: 50%;
+    height: 10%;
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    border: 1px solid var(--color-orange);
+    border-radius: 1.5em;
+    display: flex;
+    padding: 0.2em;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy .work_cta button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 0.25em;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main .clients .carousel__container .client_slide.main .slide__copy .work_cta i {
+    color: var(--color-seashell);
+  }
+  main .clients .carousel__container .client_slide #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 43, 63, 0.5);
+    z-index: 2;
+  }
+  main .clients .carousel__container .client_slide .slide_title {
+    display: none;
+  }
+  main .clients .carousel__container .client_slide img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .clients .carousel__container .client_slide .slide_count {
+    display: none;
+  }
+  main .clients .carousel__container .client_slide .slide__copy {
+    display: none;
+  }
+  main .our_services {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 250%;
+    left: 0;
+    background-color: var(--color-navy);
+  }
+  main .our_services .section_header {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    z-index: 15;
+  }
+  main .our_services .section_header h1 {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 1em;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main .our_services .section_header h1:before {
+    content: "";
+    width: 2%;
+    height: 0.05em;
+    background-color: var(--color-orange);
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 0.2em;
+  }
+  main .our_services .section_headline {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 5%;
+    top: 15%;
+  }
+  main .our_services .section_headline p {
+    margin: 0;
+    font-family: "Larken";
+    font-size: 5em;
+    font-weight: 600;
+    color: var(--color-seashell);
+    z-index: 10;
+    font-family: "Larken", Arial;
+  }
+  main .our_services .section_headline p:after {
+    content: "unique";
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    font-size: 2em;
+    color: var(--color-orange);
+    font-family: "Larken";
+  }
+  main .our_services .header_copy {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 20%;
+  }
+  main .our_services .header_copy img {
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .our_services .header_copy p {
+    margin: 0;
+    position: absolute;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main .our_services .header_copy p:nth-child(2) {
+    width: 30%;
+    height: 50%;
+    left: 5%;
+    top: 10%;
+    z-index: 10;
+    background: rgba(0, 26, 38, 0.8);
+    padding-left: 0.2em;
+    font-size: 1.5em;
+  }
+  main .our_services .header_copy p:nth-child(3) {
+    position: absolute;
+    width: 30%;
+    right: 30%;
+    top: 50%;
+    font-size: 1em;
+  }
+  main .our_services .services {
+    width: 100%;
+    position: relative;
+    top: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+  }
+  main .our_services .services .services_header {
+    width: 90%;
+    color: var(--color-seashell);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 244, 240, 0.4);
+  }
+  main .our_services .services .services_header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    display: flex;
+    position: relative;
+    font-weight: 100;
+    font-family: "Raptor", Arial;
+  }
+  main .our_services .services .service {
+    width: 90%;
+    font-size: 3em;
+    color: rgba(255, 244, 240, 0.6);
+    font-family: "Larken", sans-serif;
+    border-bottom: 1px solid rgba(255, 244, 240, 0.6);
+  }
+  main .our_services .services .service h2 {
+    margin: 0;
+    position: relative;
+    left: 10%;
+  }
+  main footer {
+    width: 100%;
+    height: 40%;
+    position: relative;
+    top: 300%;
+    background-color: var(--color-teal);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  main footer .footer_cta {
+    width: 30%;
+    display: flex;
+    position: relative;
+    bottom: 10%;
+    left: 2%;
+  }
+  main footer .footer_cta p {
+    margin: 0;
+    color: var(--color-seashell);
+    font-size: 2.5em;
+    font-family: "Raptor", sans-serif;
+  }
+  main footer .footer_cta p span {
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-size: 1.2em;
+  }
+  main footer .contact_us {
+    width: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    text-align: left;
+  }
+  main footer .contact_us:before {
+    content: "Contact us";
+    font-size: 1.2em;
+    color: rgba(255, 244, 240, 0.6);
+    font-family: "Raptor", sans-serif;
+    position: absolute;
+    bottom: 150%;
+    text-align: left;
+  }
+  main footer .contact_us p {
+    margin: 0;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--color-seashell);
+    letter-spacing: 0.2em;
+    font-family: "Raptor", sans-serif;
+    text-align: left;
+  }
+  main footer .contact_us a {
+    font-size: 1em;
+    color: var(--color-orange);
+    text-decoration: none;
+    color: rgba(255, 244, 240, 0.6);
+    font-family: "Raptor", sans-serif;
+    text-align: left;
+  }
+  main footer .follow_us {
+    width: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    text-align: left;
+  }
+  main footer .follow_us:before {
+    content: "Follow us";
+    font-size: 1.2em;
+    color: rgba(255, 244, 240, 0.6);
+    font-family: "Raptor", sans-serif;
+    position: absolute;
+    bottom: 150%;
+    text-align: left;
+  }
+  main footer .follow_us a {
+    text-transform: uppercase;
+    letter-spacing: 0.2ssssem;
+    text-decoration: none;
+    font-size: 1em;
+    color: rgba(255, 244, 240, 0.6);
+    font-family: "Raptor", sans-serif;
+    text-align: left;
+  }
+  main footer .connect {
+    display: none;
+  }
+  main footer .copyrite {
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    display: flex;
+    gap: 1em;
+    border-top: 1px solid rgba(255, 244, 240, 0.6);
+    padding-top: 1em;
+    padding-left: 2%;
+  }
+  main footer .copyrite i {
+    color: var(--color-seashell);
+  }
+  main footer .copyrite p {
+    margin: 0;
+    font-size: 0.8em;
+    color: var(--color-seashell);
+    font-family: "Raptor", sans-serif;
+  }
+  main footer .signature {
+    color: var(--color-seashell);
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    font-family: "Raptor", sans-serif;
+  }
+}/*# sourceMappingURL=styles.css.map */
