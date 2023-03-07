@@ -30,11 +30,11 @@
 
 @font-face {
   font-family: "Larken";
-  src: url("/fonts/Larken-Regular.ttf") format("truetype");
+  src: url("fonts/Larken-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Raptor";
-  src: url("/fonts/Raptor-Light.otf") format("opentype");
+  src: url("fonts/Raptor-Light.otf") format("opentype");
 }
 :root {
   --color-orange: #FF3200;
