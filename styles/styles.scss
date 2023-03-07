@@ -516,7 +516,7 @@ body{
                 position: absolute;
                 top: 13%;
                 left: 15%;
-                font-family: 'Raptor';
+                font-family: 'Raptor', Arial;
                 font-size: 1.5em;
                 color: var(--color-seashell);
             }
@@ -530,7 +530,7 @@ body{
                 flex-direction: column;
                 font-size: 6em;
                 color: var(--color-seashell);
-                font-family: 'Larken', sans-serif;
+                font-family: 'Larken';
                 line-height: 1em;
 
                 span{
@@ -641,7 +641,7 @@ body{
                         height: 35%;
                         z-index: 5;
                         left: 7%;
-                        font-family: 'Larken', Arial;
+                        font-family: 'Larken';
     
                         p{
                             margin: 0;
