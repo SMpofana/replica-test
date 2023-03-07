@@ -73,12 +73,12 @@
 
 @font-face{
     font-family: "Larken";
-    src: url('styles/fonts/Larken-Regular.ttf') format("truetype");
+    src: url('/styles/fonts/Larken-Regular.ttf') format("truetype");
 }
 
 @font-face{
     font-family: "Raptor";
-    src: url('styles/fonts/Raptor-Light.otf') format("opentype");
+    src: url('/styles/fonts/Raptor-Light.otf') format("opentype");
 }
 :root{
     --color-orange: #FF3200;
