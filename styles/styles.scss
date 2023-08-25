@@ -571,7 +571,7 @@ body{
                 svg{
                     position: absolute;
                     stroke: var(--color-orange);
-                    top: 9.5%;
+                    top: 17%;
                     transform: rotate(45deg);
                     stroke-width: 5%;
     
@@ -1053,19 +1053,20 @@ body{
 
                             h1{
                                 margin: 0;
+                                width: 100%;
                                 position: absolute;
                                 color: var(--color-seashell);
                                 font-family: 'Larken', Arial;
-                                font-size: 3em;
+                                font-size: 1.7em;
                                 font-weight: 100;
                                 text-shadow: 1px 1px 4px var(--color-black);
                                 
-                                &:after{
-                                    content: 'Malt';
-                                    color: var(--color-seashell);
-                                    font-size: 1em;
-                                    font-family: 'Larken';
-                                }
+                                // &:after{
+                                //     content: 'Malt';
+                                //     color: var(--color-seashell);
+                                //     font-size: 1em;
+                                //     font-family: 'Larken';
+                                // }
                             }
                         }
 
@@ -1074,6 +1075,7 @@ body{
                             height: 100%;
                             object-fit: cover;
                             position: absolute;
+                            object-position: center right;
                         }
                         .slide_count{
                             position: absolute;
@@ -1126,14 +1128,16 @@ body{
                             }
 
                             #copy{
-                                height: 33%;
+                                height: 40.5%;
                                 margin: 0;
                                 position: relative;
+                                display: flex;
                                 top: 30%;
                                 font-family: 'Raptor', sans-serif;  
                                 overflow: hidden;
                                 text-overflow: ellipsis; 
                                 font-size: .8em;
+                                text-overflow: ellipsis;
                             }
 
                             .work_cta{

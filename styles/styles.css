@@ -446,7 +446,7 @@ body {
   main .landing_header .header_arrow svg {
     position: absolute;
     stroke: var(--color-orange);
-    top: 9.5%;
+    top: 17%;
     transform: rotate(45deg);
     stroke-width: 5%;
   }
@@ -862,18 +862,13 @@ body {
   }
   main .clients .carousel__container .client_slide.main .slide_title h1 {
     margin: 0;
+    width: 100%;
     position: absolute;
     color: var(--color-seashell);
     font-family: "Larken", Arial;
-    font-size: 3em;
+    font-size: 1.7em;
     font-weight: 100;
     text-shadow: 1px 1px 4px var(--color-black);
-  }
-  main .clients .carousel__container .client_slide.main .slide_title h1:after {
-    content: "Malt";
-    color: var(--color-seashell);
-    font-size: 1em;
-    font-family: "Larken";
   }
   main .clients .carousel__container .client_slide.main img {
     width: 100%;
@@ -881,6 +876,8 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
     position: absolute;
+    -o-object-position: center right;
+       object-position: center right;
   }
   main .clients .carousel__container .client_slide.main .slide_count {
     position: absolute;
@@ -929,14 +926,16 @@ body {
     background-color: rgba(255, 244, 240, 0.8);
   }
   main .clients .carousel__container .client_slide.main .slide__copy #copy {
-    height: 33%;
+    height: 40.5%;
     margin: 0;
     position: relative;
+    display: flex;
     top: 30%;
     font-family: "Raptor", sans-serif;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 0.8em;
+    text-overflow: ellipsis;
   }
   main .clients .carousel__container .client_slide.main .slide__copy .work_cta {
     width: 50%;
